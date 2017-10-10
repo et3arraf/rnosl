@@ -1,6 +1,6 @@
 {
   "name": "react-native-open-settings",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "open app settings in react native",
   "main": "index.js",
   "scripts": {
