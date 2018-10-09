@@ -1,4 +1,4 @@
-# react-native-location-helper
+# react-native-open-settings
 
 [![npm
 version](https://badge.fury.io/js/react-native-open-settings@2x.png)](http://badge.fury.io/js/react-native-open-settings)
@@ -6,9 +6,9 @@ version](https://badge.fury.io/js/react-native-open-settings@2x.png)](http://bad
 Open your apps settings in the Settings app :P
 
 ## Install
-```
-npm install react-native-open-settings
-```
+
+`npm install et3arraf/rnosl` or `yarn add et3arraf/rnosl`
+
 
 ### iOS
 Add `React Native Open Settings` to project libraries.
