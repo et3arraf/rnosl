@@ -11,44 +11,37 @@ Open your apps settings in the Settings app :P
 
 
 ### iOS
-Add `React Native Open Settings` to project libraries.
+Open the app in Xcode then add `React Native Open Settings.xcodeproj` to the Libraries folder that you can find at the left under your project name. You can find `React Native Open Settings.xcodeproj` in `node_modules/react-native-open-source/`. 
 
 ### Android
 
-- Edit `build.gradle` to look like this:
-```java
-apply plugin: 'com.android.application'
-
-android {
-  ...
-}
-
+- In `android/app/build.gradle` go to dependencies and add:
+```
 dependencies {
   ...
-+ compile project(':react-native-open-settings')
++ implementation project(':react-native-open-settings')
 }
 ```
 
-- In `settings.gradle`, insert the following code:
-```java
-include ':react-native-open-settings'
-project(':react-native-open-settings').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-open-settings/android')
+- In `settings.gradle`, add these lines:
+```
++ include ':react-native-open-settings'
++ project(':react-native-open-settings').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-open-settings/android')
 ```
 
-- Edit your `MainActivity.java` to look like this:
-```java
-package com.myapp;
+- If your react-native version is below 0.29.0 go to `MainActivity.java`, if it's >=0.29.0 then go to `MainApplication.java`. Both are under `android/app/src/main/java/com/<project name>/` and import the package
+```
++ import com.opensettings.OpenSettingsPackage
+```
 
-....
-import com.opensettings.OpenSettingsPackage
+Then register the sdk package in method getPackages()
 
-public class MainActivity extends extends ReactActivity {
-
+```
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
-                new OpenSettingsPackage()
++                new OpenSettingsPackage()
         );
     }
     ...
@@ -59,13 +52,13 @@ public class MainActivity extends extends ReactActivity {
 
 Require the `react-native-open-settings` module.
 
-```javascript
+```
 import OpenSettings from 'react-native-open-settings';
 ```
 
 And then, where you want to open the settings, just do
-```javascript
 
+```
 // Check if location is enabled
 
 OpenSettings.isLocationEnabled().then((isLocationEnabled) => {
